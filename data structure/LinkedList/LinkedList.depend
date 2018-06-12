@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1526023138 source:d:\07.source\testapp\linkedlist\linkedlist.c
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<windows.h>
+	"LinkedList.h"
+
+1526023378 d:\07.source\testapp\linkedlist\linkedlist.h
+	"Common.h"
+
+1526017807 d:\07.source\testapp\linkedlist\common.h
+
+1526023353 source:d:\07.source\testapp\linkedlist\linkedlisttest.c
+	<stdio.h>
+	<stdlib.h>
+	<assert.h>
+	<windows.h>
+	"LinkedList.h"
+	"LinkedListTest.h"
+
+1526019093 d:\07.source\testapp\linkedlist\linkedlisttest.h
+
+1526019684 source:d:\07.source\testapp\linkedlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"LinkedListTest.h"
+

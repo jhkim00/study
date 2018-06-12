@@ -1,0 +1,416 @@
+[mtxLinkedList_Test] testVals
+[mtxLinkedList_Test] testVal[0]:1
+[mtxLinkedList_Test] testVal[1]:30
+[mtxLinkedList_Test] testVal[2]:4
+[mtxLinkedList_Test] testVal[3]:55
+[mtxLinkedList_Test] testVal[4]:8
+[mtxLinkedList_Test] testVal[5]:61
+[mtxLinkedList_Test] testVal[6]:92
+[mtxLinkedList_Test] testVal[7]:12
+[mtxLinkedList_Test] testVal[8]:43
+[mtxLinkedList_Test] testVal[9]:27
+
+[mtxLinkedList_Test] insert testVals at 0
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:10
+[MtxLinkedList_Print] head:0x0040d0ac
+[MtxLinkedList_Print] tail:0x0040d040
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:43
+[__PrintData] data:12
+[__PrintData] data:92
+[__PrintData] data:61
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[mtxLinkedList_Test] clear
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:0
+[MtxLinkedList_Print] head:0x00000000
+[MtxLinkedList_Print] tail:0x00000000
+[MtxLinkedList_Print] current:0x00000000
+
+[mtxLinkedList_Test] insert testVals at tail
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:10
+[MtxLinkedList_Print] head:0x0040d0b8
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:1
+[__PrintData] data:30
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[mtxLinkedList_Test] remove at 0
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:9
+[MtxLinkedList_Print] head:0x0040d0c4
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:30
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:8
+[MtxLinkedList_Print] head:0x0040d0d0
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:7
+[MtxLinkedList_Print] head:0x0040d0dc
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:6
+[MtxLinkedList_Print] head:0x0040d0e8
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:5
+[MtxLinkedList_Print] head:0x0040d0f4
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:4
+[MtxLinkedList_Print] head:0x0040d100
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:3
+[MtxLinkedList_Print] head:0x0040d10c
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:2
+[MtxLinkedList_Print] head:0x0040d118
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:1
+[MtxLinkedList_Print] head:0x0040d124
+[MtxLinkedList_Print] tail:0x0040d124
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:0
+[MtxLinkedList_Print] head:0x00000000
+[MtxLinkedList_Print] tail:0x00000000
+[MtxLinkedList_Print] current:0x00000000
+
+[mtxLinkedList_Test] insert testVals at head
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:10
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:43
+[__PrintData] data:12
+[__PrintData] data:92
+[__PrintData] data:61
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[mtxLinkedList_Test] remove at 1
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:9
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:12
+[__PrintData] data:92
+[__PrintData] data:61
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:8
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:92
+[__PrintData] data:61
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:7
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:61
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:6
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:8
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:5
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:55
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:4
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:4
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:3
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:30
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:2
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d130
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:1
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:1
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d19c
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:1
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d19c
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+
+[mtxLinkedList_Test] insert testVals at count
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:11
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:1
+[__PrintData] data:30
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[mtxLinkedList_Test] removeByData
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:10
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:30
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:9
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:4
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:8
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:55
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:7
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:8
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:6
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:61
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:5
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:92
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:4
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:12
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:3
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:43
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:2
+[MtxLinkedList_Print] head:0x0040d19c
+[MtxLinkedList_Print] tail:0x0040d214
+[MtxLinkedList_Print] current:0x00000000
+[__PrintData] data:27
+[__PrintData] data:27
+
+[MtxLinkedList_Print]
+[MtxLinkedList_Print] count:0
+[MtxLinkedList_Print] head:0x00000000
+[MtxLinkedList_Print] tail:0x00000000
+[MtxLinkedList_Print] current:0x00000000
+
