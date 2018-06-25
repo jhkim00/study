@@ -1,0 +1,14 @@
+FN: mandatory.
+
+N: ';'과 ','로 텍스트를 구분하여 여러 개 가질 수 있음.
+
+excape 대상 문자: ',', '\', ';' (':' 은 아님!!)
+
+line: CRLF로 구분. 한 출은 CRLF 포함 998 자 이내. 78 자 이내 권장. content type인 경우, CRLF 다음의 white space(HTAP(U+0009) or SPACE(U+0020))는 무시됨.
+
+Property name과 Parameter name은 case insensitive. (FN, fn, Fn, fN is same.)
+
+Parameter value: case sesitive or insensitive, depending on their definition.
+
+','로 multi value를 표현할 수 있는지?
+','로 multi param value를 표현할 수 있는지?
