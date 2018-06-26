@@ -222,34 +222,6 @@ static int __contentStateMachine(VcardParser* self)
         }
         break;
 
-    case VCARD_PARSER_CONTENT_ESC:
-        if (self->ctxt.pParsing != self->ctxt.readBuffer + self->ctxt.readCount)
-        {
-            if (self->ctxt.propSkipFlag)
-            {
-                self->ctxt.pParsing++;
-                __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
-            }
-            else
-            {
-                VcardProperty* prop = &self->ctxt.props.prop[self->ctxt.props.propCount - 1];
-                VcardPropertyVal* val = &prop->val[prop->valCount - 1];
-
-                if (*self->ctxt.pParsing == '\r'
-                    || *self->ctxt.pParsing == '\n'
-                    || *self->ctxt.pParsing == ','
-                    || *self->ctxt.pParsing == '\\'
-                    || *self->ctxt.pParsing == ';')
-                {
-                    --val->valLen;
-                }
-
-                val->val[val->valLen++] = *self->ctxt.pParsing++;
-                __tranConentState(self, VCARD_PARSER_CONTENT_VAL);
-            }
-        }
-        break;
-
     case VCARD_PARSER_CONTENT_PRAM:
         while (self->ctxt.pParsing != self->ctxt.readBuffer + self->ctxt.readCount)
         {
@@ -321,6 +293,51 @@ static int __contentStateMachine(VcardParser* self)
             }
 
             val->val[val->valLen++] = *self->ctxt.pParsing++;
+
+            if (val->valLen >= VCARD_VAL_LEN_MAX - 1)
+            {
+                self->ctxt.propSkipFlag = 1;
+                __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
+                break;
+            }
+        }
+        break;
+
+    case VCARD_PARSER_CONTENT_ESC:
+        if (self->ctxt.pParsing != self->ctxt.readBuffer + self->ctxt.readCount)
+        {
+            if (self->ctxt.propSkipFlag)
+            {
+                self->ctxt.pParsing++;
+                __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
+            }
+            else
+            {
+                VcardProperty* prop = &self->ctxt.props.prop[self->ctxt.props.propCount - 1];
+                VcardPropertyVal* val = &prop->val[prop->valCount - 1];
+
+                if (*self->ctxt.pParsing == ','
+                    || *self->ctxt.pParsing == '\\'
+                    || *self->ctxt.pParsing == ';')
+                {
+                    val->val[--val->valLen] = '\0';
+                }
+                else if (*self->ctxt.pParsing == 'n'
+                        || *self->ctxt.pParsing == 'N') // '\\' + ('n' or 'N') --> '\n'
+                {
+                    val->val[--val->valLen] = '\n';
+                }
+
+                if (val->valLen >= VCARD_VAL_LEN_MAX - 1)
+                {
+                    self->ctxt.propSkipFlag = 1;
+                    __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
+                    break;
+                }
+
+                val->val[val->valLen++] = *self->ctxt.pParsing++;
+                __tranConentState(self, VCARD_PARSER_CONTENT_VAL);
+            }
         }
         break;
 
