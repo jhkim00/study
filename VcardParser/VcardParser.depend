@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1529918711 source:d:\07.source\github\study\vcardparser\vcardparser.c
+1529975593 source:d:\07.source\github\study\vcardparser\vcardparser.c
 	<windows.h>
 	<assert.h>
 	"VcardParser.h"
@@ -8,7 +8,7 @@
 	<stdlib.h>
 	<stdio.h>
 
-1529918204 source:d:\07.source\github\study\vcardparser\main.c
+1529975566 source:d:\07.source\github\study\vcardparser\main.c
 	<stdio.h>
 	<stdlib.h>
 	"VcardParser.h"

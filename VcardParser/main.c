@@ -91,3 +91,11 @@ int main()
     printf("== finish ==\n");
     return 0;
 }
+
+/* TODO
+
+1. handling value len over limit.
+2. handling parsing error state.
+3. decoding quoted printable.
+
+*/

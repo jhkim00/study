@@ -5,49 +5,14 @@
 
 static void __tranMainState(VcardParser* self, VCARD_PARSER_MAIN_STATUS state)
 {
-    printf("mainState:%d\n", self->ctxt.mainState);
+    //printf("mainState:%d\n", self->ctxt.mainState);
     self->ctxt.mainState = state;
 }
 
 static void __tranConentState(VcardParser* self, VCARD_PARSER_CONTENT_STATUS state)
 {
-    const VCARD_PARSER_CONTENT_STATUS prevState = self->ctxt.contentState;
-
-    printf("contentState:%d\n", self->ctxt.contentState);
+    //printf("contentState:%d\n", self->ctxt.contentState);
     self->ctxt.contentState = state;
-
-    switch (state)
-    {
-    case VCARD_PARSER_CONTENT_READY:
-        break;
-
-    case VCARD_PARSER_CONTENT_PROP:
-        break;
-
-    case VCARD_PARSER_CONTENT_ESC:
-        break;
-
-    case VCARD_PARSER_CONTENT_PRAM:
-        break;
-
-    case VCARD_PARSER_CONTENT_PRAMVAL:
-        break;
-
-    case VCARD_PARSER_CONTENT_VAL:
-        break;
-
-    case VCARD_PARSER_CONTENT_CRLF:
-        break;
-
-    case VCARD_PARSER_CONTENT_LINESTART:
-        break;
-
-    case VCARD_PARSER_CONTENT_SKIP:
-        break;
-
-    case VCARD_PARSER_CONTENT_END:
-        break;
-    }
 }
 
 static int __IsSkipProperty(const char* strProperty)
@@ -243,7 +208,6 @@ static int __contentStateMachine(VcardParser* self)
                     prop->propLen = 0;
                     self->ctxt.pParsing++;
                     __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
-
                 }
                 else
                 {
@@ -261,39 +225,27 @@ static int __contentStateMachine(VcardParser* self)
     case VCARD_PARSER_CONTENT_ESC:
         if (self->ctxt.pParsing != self->ctxt.readBuffer + self->ctxt.readCount)
         {
-            VcardProperty* prop = &self->ctxt.props.prop[self->ctxt.props.propCount - 1];
-            VcardPropertyVal* val = &prop->val[prop->valCount - 1];
-
-            if (*self->ctxt.pParsing == '\r'
-                || *self->ctxt.pParsing == '\n'
-                || *self->ctxt.pParsing == ','
-                || *self->ctxt.pParsing == '\\'
-                || *self->ctxt.pParsing == ';')
+            if (self->ctxt.propSkipFlag)
             {
-                if (self->ctxt.propSkipFlag)
-                {
-                    self->ctxt.pParsing++;
-                    __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
-                }
-                else
-                {
-                    --val->valLen;
-                    val->val[val->valLen++] = *self->ctxt.pParsing++;
-                    __tranConentState(self, VCARD_PARSER_CONTENT_VAL);
-                }
+                self->ctxt.pParsing++;
+                __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
             }
             else
             {
-                if (self->ctxt.propSkipFlag)
+                VcardProperty* prop = &self->ctxt.props.prop[self->ctxt.props.propCount - 1];
+                VcardPropertyVal* val = &prop->val[prop->valCount - 1];
+
+                if (*self->ctxt.pParsing == '\r'
+                    || *self->ctxt.pParsing == '\n'
+                    || *self->ctxt.pParsing == ','
+                    || *self->ctxt.pParsing == '\\'
+                    || *self->ctxt.pParsing == ';')
                 {
-                    self->ctxt.pParsing++;
-                    __tranConentState(self, VCARD_PARSER_CONTENT_SKIP);
+                    --val->valLen;
                 }
-                else
-                {
-                    val->val[val->valLen++] = *self->ctxt.pParsing++;
-                    __tranConentState(self, VCARD_PARSER_CONTENT_VAL);
-                }
+
+                val->val[val->valLen++] = *self->ctxt.pParsing++;
+                __tranConentState(self, VCARD_PARSER_CONTENT_VAL);
             }
         }
         break;
@@ -369,12 +321,6 @@ static int __contentStateMachine(VcardParser* self)
             }
 
             val->val[val->valLen++] = *self->ctxt.pParsing++;
-            if (val->valLen >= VCARD_VAL_LEN_MAX)
-            {
-                printf("prop->name:%s\n", prop->name);
-                printf("prop->valCount:%d\n", prop->valCount);
-                printf("val->valLen:%d\n", val->valLen);
-            }
         }
         break;
 
@@ -458,6 +404,11 @@ static void __mainStateMachine(VcardParser* self)
         break;
 
     case VCARD_PARSER_MAIN_BEGIN:
+        if (self->ctxt.readCount - (self->ctxt.pParsing - self->ctxt.readBuffer) < strlen("BEGIN:VCARD"))
+        {
+            self->ctxt.dataInsufficientFlag = 1;
+        }
+        else
         {
             char* p = strstr(self->ctxt.pParsing, "BEGIN:VCARD");
             if (p)
@@ -467,12 +418,17 @@ static void __mainStateMachine(VcardParser* self)
             }
             else
             {
-                self->ctxt.dataInsufficientFlag = 1;
+                __tranMainState(self, VCARD_PARSER_MAIN_ERR);
             }
         }
         break;
 
     case VCARD_PARSER_MAIN_VERSION:
+        if (self->ctxt.readCount - (self->ctxt.pParsing - self->ctxt.readBuffer) < strlen("VERSION:"))
+        {
+            self->ctxt.dataInsufficientFlag = 1;
+        }
+        else
         {
             char* p = strstr(self->ctxt.pParsing, "VERSION:");
             if (p)
@@ -483,7 +439,7 @@ static void __mainStateMachine(VcardParser* self)
             }
             else
             {
-                self->ctxt.dataInsufficientFlag = 1;
+                __tranMainState(self, VCARD_PARSER_MAIN_ERR);
             }
         }
         break;
@@ -556,6 +512,7 @@ static void __mainStateMachine(VcardParser* self)
         break;
 
     case VCARD_PARSER_MAIN_ERR:
+
         break;
     }
 }
@@ -632,4 +589,7 @@ void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, const char* sr
             }
         }
     }
+
+    fclose(self->srcFile);
+    self->srcFile = NULL;
 }
