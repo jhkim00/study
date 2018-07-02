@@ -31,10 +31,30 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="EventObject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="EventObject.h" />
+		<Unit filename="MutexObject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="MutexObject.h" />
+		<Unit filename="RingBuffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="RingBuffer.h" />
 		<Unit filename="VcardParser.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="VcardParser.h" />
+		<Unit filename="WinEventObject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="WinEventObject.h" />
+		<Unit filename="WinMutexObject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="WinMutexObject.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -1,15 +1,51 @@
 # depslib dependency file v1.0
-1529990760 source:d:\07.source\github\study\vcardparser\vcardparser.c
+1530521837 source:d:\07.source\github\study\vcardparser\vcardparser.c
 	<windows.h>
 	<assert.h>
 	"VcardParser.h"
 
-1529989746 d:\07.source\github\study\vcardparser\vcardparser.h
+1530513928 d:\07.source\github\study\vcardparser\vcardparser.h
 	<stdlib.h>
 	<stdio.h>
+	"RingBuffer.h"
 
-1529980550 source:d:\07.source\github\study\vcardparser\main.c
+1530523131 source:d:\07.source\github\study\vcardparser\main.c
 	<stdio.h>
 	<stdlib.h>
+	<process.h>
 	"VcardParser.h"
+
+1530504811 source:d:\07.source\github\study\vcardparser\winmutexobject.c
+	"WinMutexObject.h"
+
+1530500405 d:\07.source\github\study\vcardparser\winmutexobject.h
+	<windows.h>
+	"MutexObject.h"
+
+1530504811 d:\07.source\github\study\vcardparser\mutexobject.h
+
+1530499001 source:d:\07.source\github\study\vcardparser\eventobject.c
+	"EventObject.h"
+
+1530499005 d:\07.source\github\study\vcardparser\eventobject.h
+
+1530500295 source:d:\07.source\github\study\vcardparser\mutexobject.c
+	"MutexObject.h"
+
+1530504713 source:d:\07.source\github\study\vcardparser\wineventobject.c
+	"WinEventObject.h"
+
+1530499080 d:\07.source\github\study\vcardparser\wineventobject.h
+	<windows.h>
+	"EventObject.h"
+
+1530518795 source:d:\07.source\github\study\vcardparser\ringbuffer.c
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	"RingBuffer.h"
+
+1530510479 d:\07.source\github\study\vcardparser\ringbuffer.h
+	"WinEventObject.h"
+	"WinMutexObject.h"
 

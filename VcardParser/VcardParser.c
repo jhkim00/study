@@ -88,7 +88,6 @@ static VcardItem* __CreateVcardItem(VcardParser* self)
         memset(item, 0x00, sizeof(VcardPbItem));
         item->super.type = self->type;
 
-
         for (i = 0; i < props->propCount; ++i)
         {
             prop = &props->prop[i];
@@ -149,6 +148,8 @@ static VcardItem* __CreateVcardItem(VcardParser* self)
         retItem = (VcardItem*)item;
         memset(item, 0x00, sizeof(VcardPbItem));
         item->super.type = self->type;
+
+
     }
 
     return retItem;
@@ -441,11 +442,6 @@ static void __mainStateMachine(VcardParser* self)
         break;
 
     case VCARD_PARSER_MAIN_VERSION:
-        if (self->ctxt.readCount - (self->ctxt.pParsing - self->ctxt.readBuffer) < strlen("VERSION:"))
-        {
-            self->ctxt.dataInsufficientFlag = 1;
-        }
-        else
         {
             char* p = strstr(self->ctxt.pParsing, "VERSION:");
             if (p)
@@ -456,7 +452,7 @@ static void __mainStateMachine(VcardParser* self)
             }
             else
             {
-                __tranMainState(self, VCARD_PARSER_MAIN_ERR);
+                self->ctxt.dataInsufficientFlag = 1;
             }
         }
         break;
@@ -534,13 +530,20 @@ static void __mainStateMachine(VcardParser* self)
     }
 }
 
-static unsigned int __ReadData(FILE* srcFile,
+extern BOOL g_bSrcProduceComplete;
+
+static unsigned int __ReadData(VcardParser* self,
         char* dstBuffer,
         unsigned int dstSize,
         unsigned int prevReadSize,
         unsigned int usedSize)
 {
     unsigned int readSize = 0;
+
+    if (RingBuffer_IsEmpty(self->srcBuffer) && g_bSrcProduceComplete)
+    {
+        return 0;
+    }
 
     if (prevReadSize != usedSize)
     {
@@ -552,7 +555,11 @@ static unsigned int __ReadData(FILE* srcFile,
         readSize = dstSize - usedSize;
     }
 
-    readSize += fread(dstBuffer + readSize, sizeof(char), dstSize - readSize, srcFile);
+    RingBuffer_Wait(self->srcBuffer);
+    {
+        const int sizeToRead = (self->srcBuffer->used > dstSize - readSize) ? dstSize - readSize : self->srcBuffer->used;
+        readSize += RingBuffer_Pop(self->srcBuffer, (unsigned char*)(dstBuffer + readSize), sizeToRead);
+    }
 
     return readSize;
 }
@@ -560,13 +567,13 @@ static unsigned int __ReadData(FILE* srcFile,
 static void __InitCtxt(VcardParser* self)
 {
     memset(&self->ctxt, 0x00, sizeof(self->ctxt));
-    self->ctxt.pParsing         = self->ctxt.readBuffer;
+    self->ctxt.pParsing = self->ctxt.readBuffer;
 }
 
 
 void VcardParser_Init(VcardParser* self)
 {
-    self->srcFile               = NULL;
+    self->srcBuffer             = NULL;
     self->type                  = VCARD_PB;
     self->items                 = NULL;
     self->currentItem           = NULL;
@@ -575,17 +582,20 @@ void VcardParser_Init(VcardParser* self)
     __InitCtxt(self);
 }
 
-void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, const char* srcFileName, VcardParserEventCallback callback)
+
+void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, RingBuffer* srcBuffer, VcardParserEventCallback callback)
 {
     self->type      = type;
-    self->srcFile   = fopen(srcFileName, "rb");
+    self->srcBuffer   = srcBuffer;
     self->callback  = callback;
 
     __InitCtxt(self);
 
-    while (1)
+    self->ctxt.bParsing = 1;
+
+    while (self->ctxt.bParsing)
     {
-        self->ctxt.readCount = __ReadData(self->srcFile,
+        self->ctxt.readCount = __ReadData(self,
                                         self->ctxt.readBuffer,
                                         sizeof(self->ctxt.readBuffer),
                                         self->ctxt.readCount,
@@ -604,9 +614,13 @@ void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, const char* sr
             if (self->ctxt.dataInsufficientFlag) {
                 break;
             }
+
+            Sleep(1);
         }
     }
+}
 
-    fclose(self->srcFile);
-    self->srcFile = NULL;
+void VcardParser_Stop(VcardParser* self)
+{
+    self->ctxt.bParsing = 0;
 }

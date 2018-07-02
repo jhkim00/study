@@ -12,3 +12,6 @@ Parameter value: case sesitive or insensitive, depending on their definition.
 
 ','로 multi value를 표현할 수 있는지? (o)
 ','로 multi param value를 표현할 수 있는지? (x)
+
+value 내에서 ';': multi field를 표현.
+value 내에서 ',': multi value를 표현.

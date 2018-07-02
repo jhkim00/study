@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "RingBuffer.h"
 
 
 #define VCARD_NAME_LEN_MAX          128
@@ -117,7 +118,7 @@ typedef struct _VcardParsingContext
     unsigned int                parsedCount;
     unsigned char               propSkipFlag;
     unsigned char               dataInsufficientFlag;
-    unsigned char               bParsingFinished;
+    unsigned char               bParsing;
 } VcardParsingContext;
 
 typedef struct _VcardNumber
@@ -154,7 +155,7 @@ typedef void(*VcardParserEventCallback)(VCARD_PARSER_EVENT event, void* param);
 
 typedef struct _VcardParser
 {
-    FILE*                       srcFile;
+    RingBuffer*                 srcBuffer;
     VCARD_TYPE                  type;
     VcardItem*                  items;
     VcardItem*                  currentItem;
@@ -165,6 +166,7 @@ typedef struct _VcardParser
 
 
 extern void VcardParser_Init(VcardParser* self);
-extern void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, const char* srcFileName, VcardParserEventCallback callback);
+extern void VcardParser_StartParsing(VcardParser* self, VCARD_TYPE type, RingBuffer* srcBuffer, VcardParserEventCallback callback);
+extern void VcardParser_Stop(VcardParser* self);
 
 #endif // VCARD_PARSER_H__
