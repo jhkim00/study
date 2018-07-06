@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/dial_num_input"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginRight="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/kp_1"
+        app:layout_constraintBottom_toBottomOf="@+id/kp_1"
+        android:background="@drawable/img_search"
+        android:text="@string/str_phone_enter_number"
+        android:inputType="text"/>
+
+    <Button
+        android:id="@+id/kp_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_1"
+        app:layout_constraintRight_toLeftOf="@+id/kp_2"
+        app:layout_constraintBottom_toTopOf="@+id/kp_4" />
+
+    <Button
+        android:id="@+id/kp_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_2"
+        app:layout_constraintRight_toLeftOf="@+id/kp_3"
+        app:layout_constraintBottom_toTopOf="@+id/kp_4" />
+
+    <Button
+        android:id="@+id/kp_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/kp_4" />
+
+    <Button
+        android:id="@+id/kp_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_4"
+        app:layout_constraintRight_toLeftOf="@+id/kp_5"
+        app:layout_constraintBottom_toTopOf="@+id/kp_7" />
+
+    <Button
+        android:id="@+id/kp_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_5"
+        app:layout_constraintRight_toLeftOf="@+id/kp_6"
+        app:layout_constraintBottom_toTopOf="@+id/kp_7" />
+
+    <Button
+        android:id="@+id/kp_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_6"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/kp_7" />
+
+    <Button
+        android:id="@+id/kp_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_7"
+        app:layout_constraintRight_toLeftOf="@+id/kp_8"
+        app:layout_constraintBottom_toTopOf="@+id/kp_star" />
+
+    <Button
+        android:id="@+id/kp_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_8"
+        app:layout_constraintRight_toLeftOf="@+id/kp_9"
+        app:layout_constraintBottom_toTopOf="@+id/kp_star" />
+
+    <Button
+        android:id="@+id/kp_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_9"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/kp_star" />
+
+    <Button
+        android:id="@+id/kp_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_star"
+        app:layout_constraintRight_toLeftOf="@+id/kp_0"
+        app:layout_constraintBottom_toTopOf="@+id/kp_call" />
+
+    <Button
+        android:id="@+id/kp_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_0"
+        app:layout_constraintRight_toLeftOf="@+id/kp_sharp"
+        app:layout_constraintBottom_toTopOf="@+id/kp_call" />
+
+    <Button
+        android:id="@+id/kp_sharp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_sharp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/kp_call" />
+
+    <Button
+        android:id="@+id/kp_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_call"
+        app:layout_constraintRight_toLeftOf="@+id/kp_setting"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/kp_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_setting"
+        app:layout_constraintRight_toLeftOf="@+id/kp_del"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/kp_del"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/selector_phone_kp_del"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

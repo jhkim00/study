@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/icon_call_status"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/ico_dialed" />
+
+    <TextView
+        android:id="@+id/text_call_status"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/icon_call_status"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/str_phone_calling"/>
+
+    <TextView
+        android:id="@+id/text_call_number"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_private"
+        android:text="01040313325"
+        android:textSize="36sp"/>
+
+    <Button
+        android:id="@+id/btn_mic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/btn_mic"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_keypad" />
+
+    <Button
+        android:id="@+id/btn_keypad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/btn_keypad"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.jhk.user.androidstudy.JhButton
+        android:id="@+id/btn_private"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:bg="@drawable/selector_phone_call_btn_private"
+        app:icon="@drawable/selector_phone_call_btn_private_icon"
+        app:text="@string/str_phone_use_private"
+        app:textColor="#ffffff"
+        app:distanceOfIconText="10dp" />
+
+    <com.jhk.user.androidstudy.JhButton
+        android:id="@+id/btn_call_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintLeft_toRightOf="@+id/btn_private"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:bg="@drawable/selector_phone_call_btn_end"
+        app:icon="@drawable/selector_phone_call_btn_end_icon"
+        app:text="@string/str_phone_end"
+        app:textColor="#ffffff"
+        app:distanceOfIconText="10dp" />
+
+</android.support.constraint.ConstraintLayout>

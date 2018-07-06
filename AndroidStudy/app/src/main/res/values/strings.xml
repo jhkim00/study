@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidStudy</string>
+    <string name="str_phone_dial">Dial</string>
+    <string name="str_phone_call_history">Call History</string>
+    <string name="str_phone_contacts">Contacts</string>
+    <string name="str_phone_enter_number">Enter the phone number.</string>
+    <string name="str_phone_calling">Calling...</string>
+    <string name="str_phone_use_private">Use Private</string>
+    <string name="str_phone_end">End</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="JhButton">
+        <attr name="text" format="reference|string" />
+        <attr name="bg" format="reference" />
+        <attr name="icon" format="reference" />
+        <attr name="textColor" format="reference|integer|color" />
+        <attr name="distanceOfIconText" format="reference|dimension" />
+    </declare-styleable>
+</resources>
