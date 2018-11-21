@@ -8,17 +8,33 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-
+import android.os.RemoteException;
+import android.util.Log;
 import com.jhk.user.androidstudy.service.BluetoothService;
+import com.jhk.user.androidstudy.IBluetoothServiceCallback;
 
 public class PhonePresenter implements PhoneContract.Presenter  {
 
     private static final String TAG = "PhonePresenter";
-    private PhoneContract.View mView = null;
-    private BtCallStatus mCallStatus = BtCallStatus.BT_CALL_IDLE;
+    private PhoneContract.View mView;
+    private int mCallStatus = BtCallStatus.BT_CALL_IDLE;
     private String mCallNumber = new String();
-    private ServiceConnection mBtSvcConnection = null;
-    private BroadcastReceiver mReceiver = null;
+    private ServiceConnection mBtSvcConnection;
+    private BroadcastReceiver mReceiver;
+    private IBluetoothService mIBluetoothService;
+
+    private IBluetoothServiceCallback mIBluetoothServiceCallback
+            = new IBluetoothServiceCallback.Stub() {
+        @Override
+        public void callStatusChanged(int status) throws RemoteException {
+            Log.d(TAG, "callStatusChanged(" + status + ")");
+        }
+
+        @Override
+        public void callNumberChanged(String number) throws RemoteException {
+            Log.d(TAG, "callNumberChanged(" + number + ")");
+        }
+    };
 
     public PhonePresenter(PhoneContract.View v) {
         mView = v;
@@ -28,21 +44,22 @@ public class PhonePresenter implements PhoneContract.Presenter  {
 
     @Override
     public void makeCallByNumber(String number) {
-        Intent i = new Intent(PhoneApp.getAppContext(), BluetoothService.class);
-        i.setAction("com.jhk.user.androidstudy.action.BTREQ");
-        i.putExtra("cmd", "makeCall");
-        i.putExtra("arg", number);
+        try {
+            mIBluetoothService.makeCall(number);
+        }
+        catch (RemoteException e) {
 
-        PhoneApp.getAppContext().startService(i);
+        }
     }
 
     @Override
     public void endCall() {
-        Intent i = new Intent(PhoneApp.getAppContext(), BluetoothService.class);
-        i.setAction("com.jhk.user.androidstudy.action.BTREQ");
-        i.putExtra("cmd", "endCall");
+        try {
+            mIBluetoothService.endCall();
+        }
+        catch (RemoteException e) {
 
-        PhoneApp.getAppContext().startService(i);
+        }
     }
 
     @Override
@@ -55,12 +72,18 @@ public class PhonePresenter implements PhoneContract.Presenter  {
         mBtSvcConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
+                mIBluetoothService = IBluetoothService.Stub.asInterface(service);
+                try {
+                    mIBluetoothService.registerCallback(mIBluetoothServiceCallback);
+                }
+                catch(RemoteException e) {
 
+                }
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-
+                mIBluetoothService = null;
             }
         };
 
@@ -74,7 +97,7 @@ public class PhonePresenter implements PhoneContract.Presenter  {
 
                         switch (type) {
                             case "call status":
-                                mCallStatus = (BtCallStatus) b.getSerializable("arg");
+                                mCallStatus =  b.getInt("arg");
                                 mView.updateCallStatus(mCallStatus);
 
                                 if (mCallStatus == BtCallStatus.BT_CALL_IDLE) {
@@ -98,6 +121,6 @@ public class PhonePresenter implements PhoneContract.Presenter  {
         PhoneApp.getAppContext().registerReceiver(mReceiver, iFilter);
 
         Intent i = new Intent(PhoneApp.getAppContext(), BluetoothService.class);
-        PhoneApp.getAppContext().bindService(i, mBtSvcConnection, 0);
+        PhoneApp.getAppContext().bindService(i, mBtSvcConnection, Context.BIND_AUTO_CREATE);
     }
 }

@@ -31,7 +31,7 @@ public class PhoneCallLayout extends PhoneLayout {
         v.setText(number);
     }
 
-    public void updateCallStatus(BtCallStatus status) {
+    public void updateCallStatus(int status) {
 
     }
 

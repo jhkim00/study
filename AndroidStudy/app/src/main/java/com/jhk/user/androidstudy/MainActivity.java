@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements PhoneContract.Vie
     }
 
     @Override
-    public void updateCallStatus(BtCallStatus status) {
+    public void updateCallStatus(int status) {
         if (status == BtCallStatus.BT_CALL_IDLE) {
             mPhoneDialView.setVisibility(View.VISIBLE);
             mPhoneCallView.setVisibility(View.INVISIBLE);

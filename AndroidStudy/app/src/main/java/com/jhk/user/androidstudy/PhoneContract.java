@@ -2,7 +2,7 @@ package com.jhk.user.androidstudy;
 
 public interface PhoneContract {
     interface View {
-        void updateCallStatus(BtCallStatus status);
+        void updateCallStatus(int status);
         void updateCallNumber(String number);
         void updateCallTime(int time);
     }
