@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.test.jhk.jcomponent.JButton
+        android:id="@+id/btn_radio"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:text="RADIO"
+        app:bgColor="#000000"
+        app:textColor="#ffffff"
+        app:textSize="10sp">
+    </com.test.jhk.jcomponent.JButton>
+
+    <com.test.jhk.jcomponent.JButton
+        android:id="@+id/btn_media"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:text="MEDIA"
+        app:bgColor="#000000"
+        app:textColor="#ffffff"
+        app:textSize="10sp">
+    </com.test.jhk.jcomponent.JButton>
+
+</LinearLayout>

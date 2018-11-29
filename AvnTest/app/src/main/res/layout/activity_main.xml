@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.test.jhk.jcomponent.JButton
+        android:id="@+id/btn1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:bgColor="#000000"
+        app:text="btn1"
+        app:textColor="#ffffff"
+        app:textSize="10sp">
+    </com.test.jhk.jcomponent.JButton>
+
+</android.support.constraint.ConstraintLayout>

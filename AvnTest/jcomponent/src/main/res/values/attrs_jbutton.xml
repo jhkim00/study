@@ -1,0 +1,11 @@
+<resources>
+    <declare-styleable name="JButton">
+        <attr name="text" format="reference|string" />
+        <attr name="textSize" format="reference|dimension" />
+        <attr name="bg" format="reference" />
+        <attr name="bgColor" format="reference|integer|color" />
+        <attr name="icon" format="reference" />
+        <attr name="textColor" format="reference|integer|color" />
+        <attr name="distanceOfIconText" format="reference|dimension" />
+    </declare-styleable>
+</resources>
