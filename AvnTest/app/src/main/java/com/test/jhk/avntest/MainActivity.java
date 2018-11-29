@@ -6,14 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    private static Context mContext;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mContext = MainActivity.this;
     }
 
     @Override
@@ -22,9 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Intent intent = new Intent(getApplicationContext(), ControlPanelService.class);
         //startService(intent);
-    }
-
-    public static Context getContext() {
-        return mContext;
+        Intent intent = new Intent(getApplicationContext(), KeyService.class);
+        startService(intent);
     }
 }

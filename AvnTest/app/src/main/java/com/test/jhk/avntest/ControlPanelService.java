@@ -33,9 +33,9 @@ public class ControlPanelService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        mView = (LinearLayout) LayoutInflater.from(MainActivity.getContext()).inflate(R.layout.control_panel_layout, null);
+        /*mView = (LinearLayout) LayoutInflater.from(getApplicationContext()).inflate(R.layout.control_panel_layout, null);
         if (mView != null) {
-            /*ArrayList<JButton> btns = new ArrayList<JButton>(2);
+            ArrayList<JButton> btns = new ArrayList<JButton>(2);
             JButton btnRadio = (JButton)mView.findViewById(R.id.btn_radio);
             JButton btnMedia = (JButton)mView.findViewById(R.id.btn_media);
 
@@ -46,7 +46,7 @@ public class ControlPanelService extends Service {
                 btn.setBackgroundColor(Color.parseColor("#000000"));
                 btn.setTextColor(Color.parseColor("#ffffff"));
                 btn.setTextSize(24);
-            }*/
+            }
 
             WindowManager.LayoutParams lp =
                 new WindowManager.LayoutParams(400, 1000,
@@ -56,6 +56,6 @@ public class ControlPanelService extends Service {
 
             WindowManager wm = ((WindowManager) getSystemService(WINDOW_SERVICE));
             wm.addView(mView, lp);
-        }
+        }*/
     }
 }
