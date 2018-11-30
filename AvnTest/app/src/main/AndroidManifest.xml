@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.test.jhk.avntest">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
 
     <application
         android:name=".AvnTestApp"
@@ -30,6 +30,10 @@
             android:exported="true" />
         <service
             android:name=".ModeManager"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".OsdManager"
             android:enabled="true"
             android:exported="true"></service>
     </application>

@@ -1,6 +1,5 @@
 package com.test.jhk.avntest;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,5 +19,6 @@ public class MainActivity extends AppCompatActivity {
         //startService(intent);
 
         startService(new Intent(getApplicationContext(), ModeManager.class));
+        startService(new Intent(getApplicationContext(), OsdManager.class));
     }
 }
