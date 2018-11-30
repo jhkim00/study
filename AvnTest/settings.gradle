@@ -1,1 +1,1 @@
-include ':app', ':jcomponent'
+include ':app', ':jcomponent', ':radioapp', ':mediaapp'

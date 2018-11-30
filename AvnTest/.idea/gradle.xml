@@ -10,6 +10,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/jcomponent" />
+            <option value="$PROJECT_DIR$/mediaapp" />
+            <option value="$PROJECT_DIR$/radioapp" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
