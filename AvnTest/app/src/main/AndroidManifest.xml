@@ -23,9 +23,13 @@
         <service
             android:name=".ControlPanelService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".KeyService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".ModeManager"
             android:enabled="true"
             android:exported="true"></service>
     </application>
